@@ -1,0 +1,11 @@
+--2010-06-16 17:48:21--  http://www.gnu.org/licenses/lgpl.txt
+Resolving www.gnu.org... 199.232.41.10
+Connecting to www.gnu.org|199.232.41.10|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 7651 (7.5K) [text/plain]
+Saving to: `lgpl.txt'
+
+     0K .......                                               100% 84.6K=0.09s
+
+2010-06-16 17:48:21 (84.6 KB/s) - `lgpl.txt' saved [7651/7651]
+
