@@ -15,6 +15,4 @@ env.Append( CCFLAGS = ['-g', '-Wall', '-funroll-loops', '-O3', '-ffast-math'] )
 env.Append( CPPDEFINES = ['_DEBUG'] )
 
 object_list  = env.Object(source = sources)
-t = env.StaticLibrary(target = '../lib/cug', source = object_list)
-
-Default(t)
+env.StaticLibrary(target = '../lib/cug', source = object_list)

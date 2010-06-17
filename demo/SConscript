@@ -11,10 +11,8 @@ sources = Glob('*.cpp')
 env.Append( CPPPATH = ['.'] )
 env.Append( CCFLAGS = ['-g', '-Wall', '-funroll-loops', '-O3', '-ffast-math'] )
 env.Append( CPPDEFINES = ['_DEBUG'] )
-env.Append( LIB = ['cug'] )
+env.Append( LIBS = ['cug'] )
 env.Append( LIBPATH = ['../lib'] )
 
 object_list  = env.Object(source = sources)
-t = env.Program(target = '../bin/cug-demo', source = object_list)
-
-Default(t)
+env.Program(target = '../bin/cug-demo', source = object_list)

@@ -2,3 +2,4 @@ bin/cugsim*
 obj
 bin
 *.dblite
+lib
