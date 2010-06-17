@@ -7,3 +7,7 @@ Export('env')
 # Run the src SConscript, setting the build output to ./obj/
 SConscript('src/SConscript', build_dir='obj',duplicate=0)
 SConscript('demo/SConscript', duplicate=0)
+
+ctags_sources = Glob('src/*.cpp')
+ctags_sources.extend(Glob('include/cug/*.hpp'))
+ctags = env.Command('tags', ctags_sources,"ctags -R $SOURCES")
