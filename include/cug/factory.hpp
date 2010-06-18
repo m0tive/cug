@@ -14,11 +14,11 @@
 
 namespace cug
 {
-//#pragma pack(push,1)
 
-  /// \brief
-  struct Factory
-  {
+/// \brief
+class Factory
+{
+public:
     //---------------------------------------
     /// \details Default constructor
     Factory();
@@ -27,9 +27,8 @@ namespace cug
     /// \details Destructor
     ~Factory();
 
-  };
+};
 
-//#pragma pack(pop)
 }
 
 #endif

@@ -10,4 +10,5 @@ SConscript('demo/SConscript', duplicate=0)
 
 ctags_sources = Glob('src/*.cpp')
 ctags_sources.extend(Glob('include/cug/*.hpp'))
-ctags = env.Command('tags', ctags_sources,"ctags -R $SOURCES")
+ctags = env.Command('tags', ctags_sources,"ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q $SOURCES")
+env.Alias('TAGS',ctags)

@@ -14,11 +14,11 @@
 
 namespace cug
 {
-//#pragma pack(push,1)
 
-  /// \brief
-  struct Map
-  {
+/// \brief
+class Map
+{
+public:
     //---------------------------------------
     /// \details Default constructor
     Map();
@@ -27,9 +27,8 @@ namespace cug
     /// \details Destructor
     ~Map();
 
-  };
+};
 
-//#pragma pack(pop)
 }
 
 #endif

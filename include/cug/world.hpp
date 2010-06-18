@@ -14,11 +14,11 @@
 
 namespace cug
 {
-//#pragma pack(push,1)
 
-  /// \brief
-  struct World
-  {
+/// \brief
+class World
+{
+public:
     //---------------------------------------
     /// \details Default constructor
     World();
@@ -27,9 +27,8 @@ namespace cug
     /// \details Destructor
     ~World();
 
-  };
+};
 
-//#pragma pack(pop)
 }
 
 #endif
