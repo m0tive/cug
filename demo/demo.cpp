@@ -1,3 +1,10 @@
+/// \file demo.cpp
+/// \date 2010 Jun 18
+/// \author peter@pddds.com
+/// \brief
+/// \note Copyright (C) 2010 - All Rights Reserved
+//------------------------------------------------------------------------------
+
 #ifdef WIN32
     #define WIN32_LEAN_AND_MEAN
     #include <Windows.h>
@@ -8,7 +15,7 @@
 #endif
 
 #include <cstdlib>
-#include <cug/cug.hpp>
+#include <cug/factory.hpp>
 
 int main(int argc, char** argv)
 {

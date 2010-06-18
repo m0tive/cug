@@ -3,3 +3,6 @@ obj
 bin
 *.dblite
 lib
+.preboil
+tags
+*.tmp
