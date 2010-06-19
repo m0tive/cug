@@ -6,3 +6,4 @@ lib
 .preboil
 tags
 *.tmp
+.tags*
