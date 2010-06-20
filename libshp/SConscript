@@ -11,7 +11,7 @@ Decider('MD5-timestamp')
 sources = Glob('*.c')
 
 env.Append( CPPPATH = ['../include/libshp'] )
-env.Append( CCFLAGS = ['-g', '-Wall', '-funroll-loops', '-O3', '-ffast-math'] )
+#env.Append( CCFLAGS = ['-g', '-Wall', '-funroll-loops', '-O3', '-ffast-math'] )
 env.Append( CPPDEFINES = ['_DEBUG'] )
 
 object_list  = env.Object(source = sources)

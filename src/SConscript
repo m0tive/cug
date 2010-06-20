@@ -11,7 +11,12 @@ Decider('MD5-timestamp')
 sources = Glob('*.cpp')
 
 env.Append( CPPPATH = ['../include'] )
-env.Append( CCFLAGS = ['-g', '-Wall', '-funroll-loops', '-O3', '-ffast-math'] )
+
+#if 'g++' in env['TOOLS'] :
+#    env.Append( CCFLAGS = ['-g', '-Wall', '-funroll-loops', '-ffast-math'] )
+#elif 'msvc' in env['TOOLS'] :
+#    env.Append( CCFLAGS = ['/Od' ] )
+
 env.Append( CPPDEFINES = ['_DEBUG'] )
 
 object_list  = env.Object(source = sources)

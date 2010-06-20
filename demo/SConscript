@@ -9,7 +9,7 @@ Decider('MD5-timestamp')
 sources = Glob('*.cpp')
 
 env.Append( CPPPATH = ['.', '../include'] )
-env.Append( CCFLAGS = ['-g', '-Wall', '-funroll-loops', '-O3', '-ffast-math'] )
+#env.Append( CCFLAGS = ['-g', '-Wall', '-funroll-loops', '-O3', '-ffast-math'] )
 env.Append( CPPDEFINES = ['_DEBUG'] )
 env.Append( LIBS = ['cug', 'shp'] )
 env.Append( LIBPATH = ['../lib'] )

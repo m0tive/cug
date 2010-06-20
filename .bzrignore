@@ -7,3 +7,7 @@ lib
 tags
 *.tmp
 .tags*
+*.o
+*.obj
+.sconf_temp
+*.log

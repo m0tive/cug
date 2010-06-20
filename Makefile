@@ -1,4 +1,4 @@
-default:
+all:
 	python scons/scons.py
 
 clean:
