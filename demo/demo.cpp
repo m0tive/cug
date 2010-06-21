@@ -5,13 +5,13 @@
 /// \note Copyright (C) 2010 - All Rights Reserved
 //------------------------------------------------------------------------------
 
-#ifdef WIN32
+#if defined( WIN32 ) || defined( CYGWIN )
     #define WIN32_LEAN_AND_MEAN
     #include <Windows.h>
-    #ifdef _DEBUG
-        // visual leak detector - catch memory leaks
-        #include <vld.h>
-    #endif
+#endif
+
+#ifdef USEVLD // visual leak detector - catch memory leaks
+    #include <vld.h>
 #endif
 
 #include <cstdlib>

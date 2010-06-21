@@ -2,10 +2,29 @@
 
 Import('env')
 
+cugenv = env.Clone()
+
 ## Tell scons about the build directory
-BuildDir('obj/', 'src/')
+cugenv.BuildDir('obj/', 'src/')
+
+
+if 'g++' in cugenv['TOOLS'] :
+    pass
+elif 'msvc' in cugenv['TOOLS'] :
+    cugenv.AppendUnique( CCFLAGS = [ '/Fdobj\\vc80.pdb' ] )
 
 ## Grab all the cpp files
-sources = Glob('*.cpp')
-object_list  = env.Object(source = sources)
-env.StaticLibrary(target = '#/lib/cug', source = object_list)
+sources = Glob('#/src/*.cpp', strings = True)
+headers = Glob('#/include/cug/*.hpp', strings = True)
+object_list  = cugenv.Object(source = sources)
+libcug = cugenv.StaticLibrary(target = '#/lib/cug', source = object_list )
+
+if 'msvc' in cugenv['TOOLS'] :
+    cugenv.MSVSProject(target = '#/cug.vs' + env['MSVC_VERSION'] + env['MSVSPROJECTSUFFIX'],
+                    srcs = sources, 
+                    incs = headers,
+                    buildtarget = libcug,
+                    variant = 'Debug',
+                    auto_build_solution=0
+                    )
+

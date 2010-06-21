@@ -44,15 +44,20 @@ env = conf.Finish()
 
 ## TODO : make debug build work properly...
 
-if 'g++' in env['TOOLS'] :
-    env.AppendUnique( CCFLAGS = [ '-g', '-Wall', '-funroll-loops', '-ffast-math' ] )
-elif 'msvc' in env['TOOLS'] :
-    env.AppendUnique( CCFLAGS = [ '/Od' ] )
+env.AppendUnique( CPPDEFINES = [ env['PLATFORM'].upper() ] )
 
 if env['DEBUG'] :
-    env.AppendUnique( CPPDEFINES = '_DEBUG' )
+    env.AppendUnique( CPPDEFINES = [ '_DEBUG' ] )
+    if 'g++' in env['TOOLS'] :
+        env.AppendUnique( CCFLAGS = [ '-g', '-Wall' ] )
+    elif 'msvc' in env['TOOLS'] :
+        env.AppendUnique( CCFLAGS = [ '/Od', '/Gm', '/RTC1', '/W3', '/Wp64', '/Zi' ] )
 else :
-    env.AppendUnique( CPPDEFINES = 'NDEBUG' )
+    env.AppendUnique( CPPDEFINES = [ 'NDEBUG' ] )
+    if 'g++' in env['TOOLS'] :
+        env.AppendUnique( CCFLAGS = [ '-O3', '-Wall', '-funroll-loops', '-ffast-math' ] )
+    elif 'msvc' in env['TOOLS'] :
+        env.AppendUnique( CCFLAGS = [ '/O3' ] )
 
 env.AppendUnique( CPPPATH = ['#/include'] )
 

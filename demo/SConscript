@@ -2,7 +2,9 @@
 
 Import('env')
 
+demoenv = env.Clone()
+
 ## Grab all the cpp files
 sources = Glob('*.cpp')
-object_list  = env.Object(source = sources)
-env.Program(target = '#/bin/demo', source = object_list, LIBPATH = '#/lib', LIBS = ['cug', 'shp'] )
+object_list  = demoenv.Object(source = sources)
+demoenv.Program(target = '#/bin/demo', source = object_list, LIBPATH = '#/lib', LIBS = ['cug', 'shp'] )

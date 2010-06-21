@@ -2,7 +2,20 @@
 
 Import('env')
 
+shpenv = env.Clone()
+
+shpenv.AppendUnique( CPPDEFINES = [ '_CRT_SECURE_NO_DEPRECATE', 'NDEBUG' ] )
+shpenv['CPPDEFINES'].remove('_DEBUG')
+
+if 'msvc' in shpenv['TOOLS'] :
+    shpenv['CCFLAGS'].remove( '/Od' )
+    shpenv['CCFLAGS'].remove( '/Gm' )
+    shpenv['CCFLAGS'].remove( '/RTC1' )
+    shpenv['CCFLAGS'].remove( '/W3' )
+    shpenv['CCFLAGS'].remove( '/Zi' )
+    shpenv.AppendUnique( CCFLAGS = [ '/w', '/Ox' ] )
+
 ## Grab all the c files
-sources = Glob('*.c')
-object_list  = env.Object(source = sources)
-env.StaticLibrary(target = '#/lib/shp', source = object_list)
+sources = [ 'shpopen.c', 'dbfopen.c' ]
+object_list  = shpenv.Object(source = sources)
+shpenv.StaticLibrary(target = '#/lib/shp', source = object_list)
