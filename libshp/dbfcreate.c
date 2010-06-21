@@ -56,7 +56,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "shapefil.h"
+#include "libshp/shapefil.h"
 
 SHP_CVSID("$Id: dbfcreate.c,v 1.7 2004-09-26 20:09:35 fwarmerdam Exp $")
 

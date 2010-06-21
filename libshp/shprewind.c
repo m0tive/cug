@@ -51,7 +51,7 @@
 
 #include <string.h>
 #include <stdlib.h>
-#include "shapefil.h"
+#include "libshp/shapefil.h"
 
 int main( int argc, char ** argv )
 

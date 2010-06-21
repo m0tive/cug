@@ -2,17 +2,7 @@
 
 Import('env')
 
-## Tell scons about the build directory
-#BuildDir('obj/', 'libshp/')
-## Only build the file when the timestamp has changed, and the MD5 hash is different
-Decider('MD5-timestamp')
-
 ## Grab all the c files
 sources = Glob('*.c')
-
-env.Append( CPPPATH = ['../include/libshp'] )
-#env.Append( CCFLAGS = ['-g', '-Wall', '-funroll-loops', '-O3', '-ffast-math'] )
-env.Append( CPPDEFINES = ['_DEBUG'] )
-
 object_list  = env.Object(source = sources)
-env.StaticLibrary(target = '../lib/shp', source = object_list)
+env.StaticLibrary(target = '#/lib/shp', source = object_list)

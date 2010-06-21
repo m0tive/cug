@@ -80,7 +80,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "shapefil.h"
+#include "libshp/shapefil.h"
 
 SHP_CVSID("$Id: shpadd.c,v 1.15 2007-12-30 16:57:32 fwarmerdam Exp $")
 

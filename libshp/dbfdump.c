@@ -71,7 +71,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "shapefil.h"
+#include "libshp/shapefil.h"
 
 SHP_CVSID("$Id: dbfdump.c,v 1.12 2006-06-17 00:15:08 fwarmerdam Exp $")
 

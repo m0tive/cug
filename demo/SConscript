@@ -2,17 +2,7 @@
 
 Import('env')
 
-## Only build the file when the timestamp has changed, and the MD5 hash is different
-Decider('MD5-timestamp')
-
 ## Grab all the cpp files
 sources = Glob('*.cpp')
-
-env.Append( CPPPATH = ['.', '../include'] )
-#env.Append( CCFLAGS = ['-g', '-Wall', '-funroll-loops', '-O3', '-ffast-math'] )
-env.Append( CPPDEFINES = ['_DEBUG'] )
-env.Append( LIBS = ['cug', 'shp'] )
-env.Append( LIBPATH = ['../lib'] )
-
 object_list  = env.Object(source = sources)
-env.Program(target = '../bin/demo', source = object_list)
+env.Program(target = '#/bin/demo', source = object_list, LIBPATH = '#/lib', LIBS = ['cug', 'shp'] )

@@ -61,7 +61,7 @@
  *
  */
 
-#include "shapefil.h"
+#include "libshp/shapefil.h"
 
 #include <assert.h>
 #include <stdlib.h>

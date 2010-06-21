@@ -4,20 +4,8 @@ Import('env')
 
 ## Tell scons about the build directory
 BuildDir('obj/', 'src/')
-## Only build the file when the timestamp has changed, and the MD5 hash is different
-Decider('MD5-timestamp')
 
 ## Grab all the cpp files
 sources = Glob('*.cpp')
-
-env.Append( CPPPATH = ['../include'] )
-
-#if 'g++' in env['TOOLS'] :
-#    env.Append( CCFLAGS = ['-g', '-Wall', '-funroll-loops', '-ffast-math'] )
-#elif 'msvc' in env['TOOLS'] :
-#    env.Append( CCFLAGS = ['/Od' ] )
-
-env.Append( CPPDEFINES = ['_DEBUG'] )
-
 object_list  = env.Object(source = sources)
-env.StaticLibrary(target = '../lib/cug', source = object_list)
+env.StaticLibrary(target = '#/lib/cug', source = object_list)

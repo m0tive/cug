@@ -2,6 +2,17 @@ import os
 
 env = Environment(ENV=os.environ)
 
+## Only build the file when the timestamp has changed, and the MD5 hash is different
+Decider('MD5-timestamp')
+
+opt = Variables();
+
+opt.AddVariables(
+    BoolVariable('DEBUG', 'Compile a debug version of Mapnik', 'True')
+    )
+
+opt.Update(env)
+
 def CheckCtags(context, version):
     context.Message( 'Checking for ctags...' )
     ret = context.TryAction('ctags --version')[0]
@@ -30,6 +41,20 @@ if not conf.CheckTouch():
     HAS_TOUCH = False
 
 env = conf.Finish()
+
+## TODO : make debug build work properly...
+
+if 'g++' in env['TOOLS'] :
+    env.AppendUnique( CCFLAGS = [ '-g', '-Wall', '-funroll-loops', '-ffast-math' ] )
+elif 'msvc' in env['TOOLS'] :
+    env.AppendUnique( CCFLAGS = [ '/Od' ] )
+
+if env['DEBUG'] :
+    env.AppendUnique( CPPDEFINES = '_DEBUG' )
+else :
+    env.AppendUnique( CPPDEFINES = 'NDEBUG' )
+
+env.AppendUnique( CPPPATH = ['#/include'] )
 
 Export('env')
 

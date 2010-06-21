@@ -59,7 +59,7 @@
 
 #include <string.h>
 #include <stdlib.h>
-#include "shapefil.h"
+#include "libshp/shapefil.h"
 
 SHP_CVSID("$Id: shpcreate.c,v 1.8 2007-12-30 16:57:33 fwarmerdam Exp $")
 

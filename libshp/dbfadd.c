@@ -64,7 +64,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-#include "shapefil.h"
+#include "libshp/shapefil.h"
 
 SHP_CVSID("$Id: dbfadd.c,v 1.9 2004-09-26 20:09:35 fwarmerdam Exp $")
 

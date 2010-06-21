@@ -72,7 +72,7 @@
  *
  */
 
-#include "shapefil.h"
+#include "libshp/shapefil.h"
 
 #include <math.h>
 #include <assert.h>

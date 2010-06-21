@@ -141,7 +141,7 @@
  * Treat all blank numeric fields as null too.
  */
 
-#include "shapefil.h"
+#include "libshp/shapefil.h"
 
 #include <math.h>
 #include <stdlib.h>

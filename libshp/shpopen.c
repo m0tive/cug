@@ -237,7 +237,7 @@
  *
  */
 
-#include "shapefil.h"
+#include "libshp/shapefil.h"
 
 #include <math.h>
 #include <limits.h>

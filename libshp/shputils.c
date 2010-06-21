@@ -85,7 +85,7 @@
  * Initial revision
  */
 
-#include "shapefil.h"
+#include "libshp/shapefil.h"
 #include "string.h"
 #include <stdlib.h>
 
