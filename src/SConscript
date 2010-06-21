@@ -23,8 +23,10 @@ if 'msvc' in cugenv['TOOLS'] :
     cugenv.MSVSProject(target = '#/cug.vs' + env['MSVC_VERSION'] + env['MSVSPROJECTSUFFIX'],
                     srcs = sources, 
                     incs = headers,
+                    misc = 'src/SConscript',
                     buildtarget = libcug,
                     variant = 'Debug',
                     auto_build_solution=0
                     )
+## TODO : Add build alias
 
