@@ -12,8 +12,20 @@
 #ifndef _cug_globals_hpp_
 #define _cug_globals_hpp_
 
+#include <stdexcept>
+#include <string>
+
 namespace cug
 {
+
+class CugError : public std::runtime_error
+{
+public:
+    CugError( const std::string& _message )
+        : std::runtime_error( _message )
+    {}
+};
+
 }
 
 #endif

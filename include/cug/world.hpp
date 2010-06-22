@@ -15,10 +15,14 @@
 namespace cug
 {
 
+class Factory;
+
 /// \brief
 class World
 {
-public:
+    friend class Factory;
+
+private:
     //---------------------------------------
     /// \details Default constructor
     World();

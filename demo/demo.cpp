@@ -15,10 +15,24 @@
 #endif
 
 #include <cstdlib>
+#include <iostream>
+
 #include <cug/factory.hpp>
+#include <cug/world.hpp>
 
 int main(int argc, char** argv)
 {
+    cug::Factory factory;
+    cug::Factory factB;
+
+    cug::World* demoWorld = factory.NewWorld();
+    cug::World* worldB = factB.NewWorld();
+
+//    cug::WorldIterator begin = factory.GetWorldItBegin();
+//    cug::WorldIterator end = factory.GetWorldItEnd();
+
+    factory.DeleteWorld( worldB );
+
 #if 0
     cug::World demoWorld = cug::Factory::NewWorld("demo.world.cfg")
     cug::Map demoLand = demoWorld.NewMap("demo.cfg");

@@ -75,10 +75,10 @@ if HAS_CTAGS :
     for ctags_src in ctags_sources:
         if HAS_TOUCH :
             t = env.Command('.tags.' + str(ctags_src), ctags_src,
-                "ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q $SOURCES && touch $TARGET")
+                "ctags -a --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q $SOURCES && touch $TARGET")
         else:
             t = env.Command('.tags.' + str(ctags_src), ctags_src,
-                "ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q $SOURCES")
+                "ctags -a --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q $SOURCES")
 
         tags.append(t)
     env.Alias('tags', tags)
