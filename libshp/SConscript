@@ -7,7 +7,9 @@ shpenv = env.Clone()
 shpenv.AppendUnique( CPPDEFINES = [ '_CRT_SECURE_NO_DEPRECATE', 'NDEBUG' ] )
 shpenv['CPPDEFINES'].remove('_DEBUG')
 
-if 'msvc' in shpenv['TOOLS'] :
+if 'g++' in env['TOOLS'] :
+    shpenv['CCFLAGS'].remove( '-Wall' )
+elif 'msvc' in shpenv['TOOLS'] :
     shpenv['CCFLAGS'].remove( '/Od' )
     shpenv['CCFLAGS'].remove( '/Gm' )
     shpenv['CCFLAGS'].remove( '/RTC1' )
