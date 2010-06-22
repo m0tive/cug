@@ -51,7 +51,7 @@ if env['DEBUG'] :
     if 'g++' in env['TOOLS'] :
         env.AppendUnique( CCFLAGS = [ '-g', '-Wall' ] )
     elif 'msvc' in env['TOOLS'] :
-        env.AppendUnique( CCFLAGS = [ '/Od', '/Gm', '/RTC1', '/W3', '/Wp64', '/Zi' ] )
+        env.AppendUnique( CCFLAGS = [ '/Od', '/Gm', '/RTC1', '/W3', '/Wp64', '/Zi', '/EHsc' ] )
 else :
     env.AppendUnique( CPPDEFINES = [ 'NDEBUG' ] )
     if 'g++' in env['TOOLS'] :
