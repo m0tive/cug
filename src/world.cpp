@@ -11,6 +11,21 @@
 
 namespace cug
 {
+    //------------------------------------------------ World::Load
+    void World::Load( const std::string& _configFile )
+    {
+        m_configFile = _configFile;
+    }
+
+    //------------------------------------------------ World::Reload
+    void World::Reload()
+    {
+        if( m_configFile.empty() )
+            throw World::Error("Reload called before initial Load");
+
+        Load( m_configFile );
+    }
+
     //------------------------------------------------ World::World
     World::World()
     {

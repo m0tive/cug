@@ -25,22 +25,19 @@
 int main(int argc, char** argv)
 {
     cug::Factory factory;
-//    cug::Factory factB;
 
     cug::World* demoWorld = factory.NewWorld();
-//    cug::World* worldB = factB.NewWorld();
 
+#if 0
 //    cug::WorldIterator begin = factory.GetWorldItBegin();
 //    cug::WorldIterator end = factory.GetWorldItEnd();
+#endif
 
-    //demoWorld.Load("shapefile.xml");
+    demoWorld->Load("shapefile.xml");
 
-    try
-    {
+    try {
         factory.DeleteWorld( demoWorld );
-    }
-    catch (cug::Factory::Error& error)
-    {
+    } catch (cug::Factory::Error& error) {
         return EXIT_FAILURE;
     }
 
