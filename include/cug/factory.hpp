@@ -1,16 +1,20 @@
+// File Info {{{
+//------------------------------------------------------------------------------
 /// \file factory.hpp
 /// \date 2010 Jun 18
 /// \author peter@pddds.com
 /// \brief
 /// \note Copyright (C) 2010 - All Rights Reserved
-//------------------------------------------------------------------------------
+//}}}---------------------------------------------------------------------------
 
-#ifdef _MSC_VER
+// Include catch {{{
+#ifdef _MSC_VER 
 #pragma once
 #endif
 
 #ifndef _cug_Factory_hpp_
 #define _cug_Factory_hpp_
+// }}}
 
 #include <set>
 
@@ -27,8 +31,21 @@ typedef std::set<World*>::const_iterator WorldConstIterator;
 /// \brief A singleton factory class for the library
 /// This contains methods to build and delete
 class Factory
-{
+{ // {{{
 public:
+
+    /// \brief Factory error exception
+    class Error : public cug::Error
+    { // {{{
+        friend class Factory;
+
+    protected:
+        Error( const std::string& _message = "Error in Factory" )
+            : cug::Error( _message ) {}
+
+    }; // }}}
+
+
     //---------------------------------------
     /// \details Hidden constructor
     Factory();
@@ -69,19 +86,8 @@ protected:
     //---------------------------------------
     /// \brief A list of all the worlds
     std::set<World*> m_worlds;
-};
+}; // }}}
 
-
-/// \brief Factory error exception
-class FactoryError : public CugError
-{
-    friend class Factory;
-
-protected:
-    FactoryError( const std::string& _message = "Error in Factory" )
-        : CugError( _message ) {}
-
-};
 
 }
 

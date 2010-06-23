@@ -3,6 +3,7 @@ all:
 
 clean:
 	python scons/scons.py -Qc
+	rm -f tags
 
 TAGS:
 	rm -rf .tags* tags
